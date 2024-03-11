@@ -354,15 +354,17 @@ exports.selectSnapshot = (req, res) => {
 //PUT /snapshots/updatesnapshot
 exports.updateSnapshot = (req, res) => {
 
-    const session = req.session;
-    const { isloggedin, userid } = req.session;
+    // const session = req.session;
+    // const { isloggedin, userid } = req.session;
 
     const { id } = req.params;
 
     //const emotion_data_id = req.params.snapshotid;  
     const { context } = req.body;
     const vals = [context, id];
-    console.log(vals);
+    //console.log('VALS ARE ' + vals);
+    //console.log('PARAMS ARE ' + req.params);
+    console.log(JSON.stringify(req.body));
 
     const updateSQL = `UPDATE emotiondata SET context_trigger = ? WHERE emotion_data_id = ?`;
 
@@ -397,6 +399,8 @@ exports.deleteSnapshot = (req, res) => {
     //const run_id = req.params.id;
 
     const { id } = req.params;
+
+    console.log('>>>>>>ID IS ' + id);
 
     const deleteSQL = `DELETE FROM emotiondata WHERE emotion_data_id = ${id}`;
     conn.query(deleteSQL, (err, rows) => {

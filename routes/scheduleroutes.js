@@ -29,9 +29,9 @@ router.get('/getdashboard', controller.getDashboard);
 
 router.post('/addsnapshot', controller.postNewSnap);
 
-router.put('/updatesnapshot', controller.updateSnapshot);
+router.put('/updatesnapshot/:id', controller.updateSnapshot);
 
-router.delete('deletesnapshot/:id', controller.deleteSnapshot);
+router.delete('/deletesnapshot/:id', controller.deleteSnapshot);
 
 
 
