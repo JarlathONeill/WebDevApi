@@ -1,6 +1,5 @@
 const express = require('express');
 const morgan = require('morgan');
-//const dotenv = require('dotenv').config({ path: './config.env' });
 const schedulerouter = require('./routes/scheduleroutes');
 const userrouter = require('./routes/userroutes');
 const path = require('path');
@@ -23,13 +22,5 @@ app.use(session({
 app.use('/snapshot', schedulerouter);
 app.use('/users', userrouter);
 app.set('view engine', 'ejs');
-
-//test
-/*
-app.listen(process.env.PORT, (err) => {
-    if (err) return console.log(err);
-    console.log(`Express listening on port ${process.env.PORT}`);
-});
-*/
 
 module.exports = app;

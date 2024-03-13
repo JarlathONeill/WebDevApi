@@ -1,5 +1,4 @@
 const conn = require('./../utils/dbconn');
-const axios = require('axios');
 
 exports.getUserDetails = (req, res) => {
     const { id } = req.params;
@@ -36,7 +35,6 @@ exports.getUserDetails = (req, res) => {
 exports.postLogin = (req, res) => {
 
     const vals = { email, userpass } = req.body;
-    console.log('>>>>>>>>VALS: ' + vals);
 
     const checkuserSQL = `SELECT user_id, email, password FROM user 
     WHERE user.email = '${email}' AND user.password = '${userpass}'`;
@@ -67,6 +65,7 @@ exports.postLogin = (req, res) => {
     });
 };
 
+
 exports.postRegister = (req, res) => {
 
     //deconstructing and getting user info from registration input
@@ -84,7 +83,6 @@ exports.postRegister = (req, res) => {
                 message: err
             });
         } else {
-            //console.log(`Length = ${rows.length}`);
             if (rows.length > 0) {
                 res.status(401);
                 res.json({

@@ -1,6 +1,4 @@
 const conn = require('./../utils/dbconn');
-const axios = require('axios');
-
 
 exports.getDashboard = (req, res) => {
 
@@ -25,29 +23,7 @@ exports.getDashboard = (req, res) => {
 };
 
 
-
-//POST /snapshots
 exports.postNewSnap = (req, res) => {
-    //const { isloggedin, userid } = req.session;
-
-    // const vals = { enjoyment, sadness, anger, contempt, disgust,
-    //     fear, surprise, context, datetimerecord, userid } = req.body;
-
-    // const vals = {context, datetimerecord, userid } = req.body;
-
-    // const vals = { datetimerecord, enjoyment, sadness, anger, contempt, disgust, fear, surprise, context };
-    // console.log(JSON.stringify(vals));
-
-
-    //const vals = {enjoyment, sadness, anger, contempt, disgust, fear, surprise, context, datetimerecord, userid};
-
-    // const insertSQL = `INSERT INTO emotiondata (enjoyment, sadness, anger, contempt, disgust, fear, surprise, context_trigger, date_time_record, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-
-    // const insertSQL = `INSERT INTO emotiondata (context_trigger, date_time_record, user_id) VALUES (?, ?, ?)`;
-
-    //const insertSQL = 'INSERT INTO `emotiondata` (`emotion_data_id`, `date_time_record`, `enjoyment`, `sadness`, `anger`, `contempt`, `disgust`, `fear`, `surprise`, `context_trigger`, `user_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-
-    //const { isloggedin, userid } = req.session;
 
     const { enjoyment, sadness, anger, contempt, disgust,
         fear, surprise, context, datetimerecord } = req.body;
@@ -76,8 +52,8 @@ exports.postNewSnap = (req, res) => {
             });
         }
     });
-
 };
+
 
 exports.getSelectSnapshot = (req, res) => {
 
@@ -109,9 +85,6 @@ exports.getSelectSnapshot = (req, res) => {
     });
 
 }
-
-
-
 
 
 //PUT /snapshots/updatesnapshot
