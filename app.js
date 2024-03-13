@@ -4,6 +4,7 @@ const schedulerouter = require('./routes/scheduleroutes');
 const userrouter = require('./routes/userroutes');
 const path = require('path');
 const session = require('express-session');
+const bcrypt = require('bcrypt');
 
 const app = express();
 
