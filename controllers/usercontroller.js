@@ -77,25 +77,26 @@ exports.postRegister = (req, res) => {
 
     conn.query(checkdetailsSQL, vals, (err, rows) => {
         if (err) {
-            res.status(500);
+            res.status(500).json;
             res.json({
                 status: 'failure',
                 message: err
             });
         } else {
             if (rows.length > 0) {
-                res.status(401);
+                res.status(401).json;
                 res.json({
                     status: 'failure',
-                    message: `Details already in use`,
-                    result: rows
+                    message: `Email already in use`,
+                    //result: rows
                 });
             } else {
                 conn.query(insertSQL, vals, (err, rows) => {
-                    res.status(200);
+                    res.status(200).json;
                     res.json({
                         status: 'success',
-                        message: `Registered new user`
+                        message: `Registered new user`,
+                        result: rows
                     });
                 });
             }
