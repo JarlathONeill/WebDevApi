@@ -113,7 +113,12 @@ exports.postRegister = async (req, res) => {
                 res.json({
                     status: 'failure',
                     message: `Email already in use`,
-                    //result: rows
+                });
+            } else if (!firstname || !lastname || !email || !userpass) {
+                res.status(401).json;
+                res.json({
+                    status: 'failure',
+                    message: `Please enter valid details`,
                 });
             } else {
                 conn.query(insertSQL, vals, (err, rows) => {
